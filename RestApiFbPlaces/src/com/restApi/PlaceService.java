@@ -20,10 +20,10 @@ public class PlaceService {
    @Path("/{country}/{city}/{name}") /** Parameters used in URL */
    @Produces(MediaType.APPLICATION_JSON) /** Type of returned media */
    public List<com.restApi.Place> getPlaces(@PathParam("country") String country, @PathParam("city") String city, @PathParam("name") String name) { 
-	   List <com.restApi.Place> miejsca = FacebookApi.getAllPlaces(country,city,name);
-       if (miejsca.size() == 0) {
+	   List <com.restApi.Place> places = FacebookApi.getAllPlaces(country,city,name);
+       if (places.size() == 0) {
            throw new WebApplicationException(Response.Status.NOT_FOUND);
        }
-	   return miejsca; 
+	   return places;
    }
 }
